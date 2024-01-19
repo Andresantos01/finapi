@@ -54,14 +54,14 @@ app.post("/account", (req, res) => {
     return res.status(201).send()
 })
 
-// app.use(verifyIfExistsAccountCPF);
+app.use(verifyIfExistsAccountCPF);
 
-app.get("/statement", verifyIfExistsAccountCPF, (req, res) => {
+app.get("/statement", (req, res) => {
     const { customer } = req;
     return res.json(customer.statement)
 })
 
-app.post("/deposit", verifyIfExistsAccountCPF, (req, res) => {
+app.post("/deposit", (req, res) => {
     const { description, amount } = req.body;
     
     const { customer } = req;
@@ -78,7 +78,7 @@ app.post("/deposit", verifyIfExistsAccountCPF, (req, res) => {
     return res.status(201).send()
 })
 
-app.post("/withdraw", verifyIfExistsAccountCPF, (req, res) => {
+app.post("/withdraw", (req, res) => {
     const { amount } = req.body;
     const { customer } = req;
 
@@ -99,7 +99,7 @@ app.post("/withdraw", verifyIfExistsAccountCPF, (req, res) => {
     return res.status(201).send()
 })
 
-app.get("/statement/date", verifyIfExistsAccountCPF, (req, res) => {
+app.get("/statement/date", (req, res) => {
     const { customer } = req;
     const { date } = req.query;
 
@@ -110,7 +110,7 @@ app.get("/statement/date", verifyIfExistsAccountCPF, (req, res) => {
     return res.json(statement)
 })
 
-app.put("/account", verifyIfExistsAccountCPF, (req, res) => {
+app.put("/account", (req, res) => {
     const { name } = req.body;
     const { customer } = req;
 
@@ -119,13 +119,13 @@ app.put("/account", verifyIfExistsAccountCPF, (req, res) => {
     return res.status(201).send()
 })
 
-app.get("/account", verifyIfExistsAccountCPF, (req, res) => {
+app.get("/account", (req, res) => {
     const { customer } = req;
 
     return res.json(customer)
 })
 
-app.delete("/account", verifyIfExistsAccountCPF, (req, res) => {
+app.delete("/account", (req, res) => {
     const { customer } = req;
 
     customers.splice(customer, 1);
@@ -133,7 +133,7 @@ app.delete("/account", verifyIfExistsAccountCPF, (req, res) => {
     return res.status(204).send();
 })
 
-app.get("/balance", verifyIfExistsAccountCPF, (req, res) => {
+app.get("/balance", (req, res) => {
     const { customer } = req;
     
     const balance = getBalance(customer.statement);
