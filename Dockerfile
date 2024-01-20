@@ -12,4 +12,4 @@ EXPOSE 3000
 
 #ENTRYPOINT [ "usr/local/bin/node" ]
 
-CMD [ "npm","start"]
+CMD [ "npm","start" ]
