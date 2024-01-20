@@ -10,6 +10,6 @@ COPY . .
 
 EXPOSE 3000
 
-ENTRYPOINT [ "usr/local/bin/node" ]
+#ENTRYPOINT [ "usr/local/bin/node" ]
 
-CMD [ "src/index.js"]
+CMD [ "npm","start"]
