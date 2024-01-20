@@ -21,6 +21,6 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/finapi:${{ github.run_number }}
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/finapi:${{ github.run_number }},${{ secrets.DOCKERHUB_USERNAME }}/finapi:latest
         cache-from: type=gha
         cache-to: type=gha,mode=max
