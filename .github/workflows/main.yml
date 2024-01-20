@@ -21,6 +21,6 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         push: true
-        tags: ${{ github.repository }}:${{ github.run_number }}
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}:${{ github.run_number }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
